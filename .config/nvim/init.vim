@@ -2,6 +2,7 @@ set number
 let g:solarized_termcolors=256
 set background=light
 colorscheme solarized
+set splitbelow
 
 let NERDTreeWinSize = 45
 
