@@ -19,10 +19,23 @@ set colorcolumn=100
 " vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/scrooloose/nerdtree'
+Plug 'https://github.com/benekastah/neomake'
+Plug 'https://github.com/Shougo/deoplete.nvim'
+Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'NLKNguyen/pipe.vim'
+Plug 'NLKNguyen/pipe-mysql.vim'
 call plug#end()
+
+" Neomake
+autocmd! BufWritePost,BufEnter * Neomake
+let g:neomake_python_flake8_maker = {}
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Airline
 let g:airline_theme='bubblegum'
