@@ -9,6 +9,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set list
 set clipboard=unnamedplus
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Color scheme
 let g:solarized_termcolors=256
