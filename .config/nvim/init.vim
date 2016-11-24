@@ -31,9 +31,8 @@ Plug 'cloudhead/neovim-fuzzy'
 Plug 'w0rp/ale'
 call plug#end()
 
-" Neomake
-autocmd! BufWritePost,BufEnter * Neomake
-let g:neomake_python_flake8_maker = {}
+" Close preview after auto completion
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
