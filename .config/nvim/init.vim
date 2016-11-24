@@ -9,16 +9,10 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set list
 set clipboard=unnamedplus
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-" Color scheme
-let g:solarized_termcolors=256
-set background=light
-colorscheme solarized
-set colorcolumn=100
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -30,6 +24,12 @@ Plug 'carlitux/deoplete-ternjs'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'w0rp/ale'
 call plug#end()
+
+" Color
+set termguicolors
+set background=light
+colorscheme gruvbox
+set colorcolumn=100
 
 " Close preview after auto completion
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
