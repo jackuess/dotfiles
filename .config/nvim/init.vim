@@ -19,16 +19,16 @@ set colorcolumn=100
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/scrooloose/nerdtree'
-Plug 'https://github.com/benekastah/neomake'
-Plug 'https://github.com/Shougo/deoplete.nvim'
-Plug 'https://github.com/vim-airline/vim-airline'
-Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'tpope/vim-fugitive'
 Plug 'NLKNguyen/pipe.vim'
 Plug 'NLKNguyen/pipe-mysql.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'carlitux/deoplete-ternjs'
+Plug 'cloudhead/neovim-fuzzy'
+Plug 'w0rp/ale'
 call plug#end()
 
 " Neomake
@@ -41,3 +41,6 @@ let g:deoplete#enable_at_startup = 1
 " Airline
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
+
+" novim-fuzzy
+nnoremap <C-p> :FuzzyOpen<CR>
