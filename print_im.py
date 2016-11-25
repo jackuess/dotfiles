@@ -13,7 +13,7 @@ Pixel = collections.namedtuple("Pixel", ("col", "line", "red", "green", "blue", 
 
 def printstackedpixels(top, bottom=Pixel(0, 0, 0, 0, 0, 255)):
     sys.stdout.write("\033[38;2;{top.red};{top.green};{top.blue}m"
-                     "\033[48;2;{top.red};{top.green};{top.blue}m\u2580".format(top=top, bottom=bottom))
+                     "\033[48;2;{bottom.red};{bottom.green};{bottom.blue}m\u2580".format(top=top, bottom=bottom))
 
 
 def parseline(line):
