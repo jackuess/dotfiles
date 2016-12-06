@@ -23,6 +23,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'w0rp/ale'
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 " Color
