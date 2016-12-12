@@ -24,6 +24,7 @@ Plug 'carlitux/deoplete-ternjs'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
+Plug 'vitalk/vim-simple-todo'
 call plug#end()
 
 " Color
@@ -44,3 +45,6 @@ let g:airline_powerline_fonts = 1
 
 " novim-fuzzy
 nnoremap <C-p> :FuzzyOpen<CR>
+
+" vim-simple-todo
+let g:simple_todo_tick_symbol = '✔'
