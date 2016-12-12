@@ -24,7 +24,6 @@ Plug 'carlitux/deoplete-ternjs'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
-Plug 'dbext.vim'
 call plug#end()
 
 " Color
