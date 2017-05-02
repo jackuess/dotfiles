@@ -34,6 +34,9 @@ set background=light
 colorscheme gruvbox
 set colorcolumn=100
 
+" Tree view liststyle in netrw
+let g:netrw_liststyle = 3
+
 " Close preview after auto completion
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
