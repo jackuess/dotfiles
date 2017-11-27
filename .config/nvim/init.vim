@@ -20,12 +20,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'NLKNguyen/pipe.vim'
 Plug 'NLKNguyen/pipe-mysql.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'carlitux/deoplete-ternjs'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
 Plug 'vitalk/vim-simple-todo'
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " Color
@@ -52,3 +51,9 @@ nnoremap <C-p> :FuzzyOpen<CR>
 
 " vim-simple-todo
 let g:simple_todo_tick_symbol = '✔'
+
+" LanguageClient
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['/usr/bin/pyls'],
+    \ }
+let g:LanguageClient_autoStart = 1
