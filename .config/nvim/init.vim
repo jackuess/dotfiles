@@ -26,6 +26,7 @@ Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
 Plug 'vitalk/vim-simple-todo'
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zah/nim.vim'
 call plug#end()
 
 " Color
