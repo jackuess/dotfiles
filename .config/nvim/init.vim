@@ -20,6 +20,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'NLKNguyen/pipe.vim'
 Plug 'NLKNguyen/pipe-mysql.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/echodoc.vim'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
