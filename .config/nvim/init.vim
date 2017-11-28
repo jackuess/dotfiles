@@ -48,6 +48,7 @@ let g:deoplete#enable_at_startup = 1
 " Airline
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " novim-fuzzy
 nnoremap <C-p> :FuzzyOpen<CR>
