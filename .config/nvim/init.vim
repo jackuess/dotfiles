@@ -59,6 +59,6 @@ let g:simple_todo_tick_symbol = '✔'
 
 " LanguageClient
 let g:LanguageClient_serverCommands = {
-    \ 'python': ['/usr/bin/pyls'],
+    \ 'python': ['bash', '-c', 'env/bin/pyls || /usr/bin/pyls'],
     \ }
 let g:LanguageClient_autoStart = 1
