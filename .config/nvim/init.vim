@@ -26,6 +26,8 @@ Plug 'cloudhead/neovim-fuzzy'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
 Plug 'vitalk/vim-simple-todo'
+Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 call plug#end()
 
 " Color
