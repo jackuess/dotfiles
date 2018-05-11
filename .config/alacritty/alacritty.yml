@@ -1,9 +1,11 @@
 env:
   TERM: xterm-256color
 
-dimensions:
-  columns: 160
-  lines: 40
+window:
+  decorations: true
+  dimensions:
+      columns: 160
+      lines: 40
 
 dpi:
   x: 96.0
