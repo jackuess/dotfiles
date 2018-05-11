@@ -26,9 +26,6 @@ font:
     family: Hack
 
   size: 11.0
-  offset:
-    x: 1.5
-    y: 1.0
 
 render_timer: false
 
