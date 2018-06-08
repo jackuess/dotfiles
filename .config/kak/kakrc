@@ -1,0 +1,12 @@
+add-highlighter global number_lines -relative
+colorscheme solarized-light
+set global tabstop 4
+
+# LSP
+%sh{kak-lsp --kakoune -s $kak_session}
+lsp-start
+
+# Copy/Paste
+hook global NormalKey y|d|c %{ nop %sh{
+    printf %s "$kak_reg_dquote" | xsel --input --clipboard
+}}
