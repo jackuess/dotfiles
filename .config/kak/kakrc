@@ -2,6 +2,8 @@ add-highlighter global number_lines -relative
 colorscheme solarized-light
 set global tabstop 4
 
+set global grepcmd 'rg --column'
+
 # LSP
 %sh{kak-lsp --kakoune -s $kak_session}
 lsp-start
