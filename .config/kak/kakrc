@@ -12,3 +12,7 @@ lsp-start
 hook global NormalKey y|d|c %{ nop %sh{
     printf %s "$kak_reg_dquote" | xsel --input --clipboard
 }}
+
+# User mode key bindings
+map global user f :fzf-file<ret> -docstring 'fzf-file'
+map global user b :fzf-buffer<ret> -docstring 'fzf-buffer'
