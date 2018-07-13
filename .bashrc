@@ -28,3 +28,5 @@ preexec() {
 }
 
 source /usr/share/doc/pkgfile/command-not-found.bash
+
+[[ -s "$HOME/.bashrc.local" ]] && source "$HOME/.bashrc.local"
