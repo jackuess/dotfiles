@@ -1,6 +1,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export VISUAL=kak
+
 alias ls='ls --color=auto'
 eval $(dircolors -b)
 alias grep='grep --color=auto'
