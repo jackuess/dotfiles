@@ -14,6 +14,12 @@ hook global NormalKey y|d|c %{ nop %sh{
     printf %s "$kak_reg_dquote" | xsel --input --clipboard
 }}
 
+# Indent/deindent with spaces when hitting <tab>
+hook global InsertChar \t %{ try %{
+  execute-keys -draft "h<a-h><a-k>\A\h+\z<ret><a-;>;%opt{indentwidth}@"
+}}
+map global insert <s-tab> '<a-;><lt>'
+
 # User mode key bindings
 map global user f :fzf-file<ret> -docstring 'fzf-file'
 map global user b :fzf-buffer<ret> -docstring 'fzf-buffer'
