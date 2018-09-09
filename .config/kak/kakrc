@@ -1,11 +1,11 @@
-add-highlighter global number_lines -relative
+add-highlighter global/ number-lines
 colorscheme solarized-light
 set global tabstop 4
 
 set global grepcmd 'rg --column'
 
 # LSP
-%sh{kak-lsp --kakoune -s $kak_session}
+evaluate-commands %sh{kak-lsp --kakoune -s $kak_session}
 lsp-start
 lsp-auto-hover-enable
 
