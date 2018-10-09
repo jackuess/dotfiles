@@ -37,7 +37,10 @@ source /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
 
 source /usr/share/bash-preexec/bash-preexec.sh
 preexec() {
-    printf '\033[30;47mCommand started at: %s\033[0m\n' "$(date)"
+    printf '\033[30;47mCommand started at %s\033[0m\n' "$(date)"
+}
+precmd() {
+    printf '\033[30;47m  Command ended at %s\033[0m\n' "$(date)"
 }
 
 source /usr/share/doc/pkgfile/command-not-found.bash
