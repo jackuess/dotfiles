@@ -24,6 +24,8 @@ curljson () {
     curl -s -v "$@" | jq
 }
 
+export PYTHON_SITE_PACKAGES=$(python -c 'import site; print(site.getsitepackages()[0])')
+
 # FZF
 export FZF_DEFAULT_OPTS='--multi --preview '"'"'[[ $(file --mime {}) =~ binary ]] &&
 						    echo {} is a binary file ||
@@ -33,7 +35,7 @@ source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
 powerline-daemon -q
-source /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
+source $PYTHON_SITE_PACKAGES/powerline/bindings/bash/powerline.sh
 
 source /usr/share/bash-preexec/bash-preexec.sh
 preexec() {
