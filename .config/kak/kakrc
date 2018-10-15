@@ -6,6 +6,7 @@ set global grepcmd 'rg --column'
 # Highlighting
 add-highlighter global/ number-lines
 add-highlighter global/ show-matching
+add-highlighter global/ column '%opt{autowrap_column}' StatusLine
 
 ## Highlight search
 set-face global search +bi
