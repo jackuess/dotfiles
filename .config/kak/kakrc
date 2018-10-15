@@ -1,10 +1,13 @@
-add-highlighter global/ number-lines
 colorscheme solarized-light
 set global tabstop 4
 
 set global grepcmd 'rg --column'
 
-# Highlight search
+# Highlighting
+add-highlighter global/ number-lines
+add-highlighter global/ show-matching
+
+## Highlight search
 set-face global search +bi
 add-highlighter global/search dynregex '%reg{/}' 0:search
 
