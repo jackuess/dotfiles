@@ -4,6 +4,8 @@ set global tabstop 4
 set global grepcmd 'rg --column'
 
 # Highlighting
+source "%val{config}/gruvbox-light.kak"
+
 add-highlighter global/ number-lines
 add-highlighter global/ show-matching
 add-highlighter global/ column '%opt{autowrap_column}' StatusLine
