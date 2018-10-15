@@ -4,6 +4,10 @@ set global tabstop 4
 
 set global grepcmd 'rg --column'
 
+# Highlight search
+set-face global search +bi
+add-highlighter global/search dynregex '%reg{/}' 0:search
+
 # LSP
 evaluate-commands %sh{kak-lsp --kakoune -s $kak_session}
 lsp-start
