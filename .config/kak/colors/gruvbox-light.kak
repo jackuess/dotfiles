@@ -73,6 +73,7 @@ evaluate-commands %sh{
         face global Whitespace         ${bg2}
 
         # Kak-LSP
+        face global DiagnosticError    ${orange},${bg2}
         face global DiagnosticWarning  ${orange},${bg1}
     "
 }
