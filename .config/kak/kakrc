@@ -4,8 +4,6 @@ set global tabstop 4
 set global grepcmd 'rg --column'
 
 # Highlighting
-source "%val{config}/gruvbox-light.kak"
-
 add-highlighter global/ number-lines
 add-highlighter global/ show-matching
 add-highlighter global/ column '%opt{autowrap_column}' StatusLine
@@ -33,3 +31,5 @@ map global insert <s-tab> '<a-;><lt>'
 # User mode key bindings
 map global user f :fzf-file<ret> -docstring 'fzf-file'
 map global user b :fzf-buffer<ret> -docstring 'fzf-buffer'
+
+colorscheme gruvbox-light
