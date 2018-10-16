@@ -1,23 +1,23 @@
-def -docstring 'invoke fzf to open a file' \
-  fzf-file %{ %sh{
-    if [ -z "$TMUX" ]; then
-      echo echo only works inside tmux
-    else
-      FILE=$(rg --files | fzf-tmux -d 15)
-      if [ -n "$FILE" ]; then
-        printf 'eval -client %%{%s} edit %%{%s}\n' "${kak_client}" "${FILE}" | kak -p "${kak_session}"
-      fi
-    fi
-} }
+define-command -docstring 'Invoke fzf to open a file' -params 0 fzf-edit %{
+    evaluate-commands %sh{
+        if [ -z "${kak_client_env_TMUX}" ]; then
+            printf 'fail "client was not started under tmux"\n'
+        else
+            file="$(find . -type f |TMUX="${kak_client_env_TMUX}" fzf-tmux -d 15)"
+            if [ -n "$file" ]; then
+                printf 'edit "%s"\n' "$file"
+            fi
+        fi
+    }
+}
 
-def -docstring 'invoke fzf to select a buffer' \
-  fzf-buffer %{ %sh{
-    if [ -z "$TMUX" ]; then
-      echo echo only works inside tmux
-    else
-      BUFFER=$(printf %s\\n "${kak_buflist}" | tr : '\n' | fzf-tmux -d 15)
+# the original version no longer works since kak_buflist is no longer ":" separated.
+# this one works if you don't have single quote in file names.
+
+def -override -docstring 'invoke fzf to select a buffer' \
+  fzf-buffer %{eval %sh{
+      BUFFER=$(printf %s\\n ${kak_buflist} | sed "s/'//g" |fzf-tmux -d 15)
       if [ -n "$BUFFER" ]; then
-        echo "eval -client '$kak_client' 'buffer ${BUFFER}'" | kak -p ${kak_session}
+        echo buffer ${BUFFER}
       fi
-    fi
 } }
