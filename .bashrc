@@ -4,6 +4,7 @@
 export VISUAL=kak
 
 alias ls='ls --color=auto'
+alias treeless='tree -C | less -R'
 eval $(dircolors -b)
 alias grep='grep --color=auto'
 
