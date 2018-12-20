@@ -2,7 +2,7 @@ env:
   TERM: xterm-256color
 
 window:
-  decorations: true
+  decorations: full
   dimensions:
       columns: 220
       lines: 60
