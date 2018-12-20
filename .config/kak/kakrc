@@ -14,7 +14,7 @@ add-highlighter global/search dynregex '%reg{/}' 0:search
 
 # LSP
 evaluate-commands %sh{kak-lsp --kakoune -s $kak_session}
-lsp-start
+lsp-enable
 lsp-auto-hover-enable
 
 # Copy/Paste
