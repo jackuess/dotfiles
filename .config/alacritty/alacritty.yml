@@ -29,8 +29,6 @@ font:
 
 render_timer: false
 
-custom_cursor_colors: false
-
 # Colors (Snazzy)
 colors:
   # Default colors
@@ -166,8 +164,6 @@ mouse:
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-
-hide_cursor_when_typing: false
 
 # Shell
 #
