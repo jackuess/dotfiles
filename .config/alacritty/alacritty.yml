@@ -27,7 +27,7 @@ font:
 
   size: 9.0
 
-render_timer: false
+debug.render_timer: false
 
 # Colors (Snazzy)
 colors:
