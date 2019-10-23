@@ -42,3 +42,7 @@ map global user f :fzf-edit<ret> -docstring 'fzf-edit'
 map global user b :fzf-buffer<ret> -docstring 'fzf-buffer'
 
 colorscheme gruvbox-light
+# Hack to avoid using termcolors in the *grep* buffer:
+hook -group grep-highlight global WinSetOption filetype=grep %{
+    add-highlighter window/grep/ regex "^((?:\w:)?[^:\n]+):(\d+):(\d+)?" 1:function 2:value 3:value
+}
