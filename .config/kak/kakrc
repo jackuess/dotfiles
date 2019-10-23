@@ -1,4 +1,13 @@
-colorscheme solarized-light
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+plug "andreyorst/plug.kak" noload config
+plug "alexherbo2/connect.kak"
+plug "andreyorst/powerline.kak" tag v1.0.0 %{
+    hook -once global WinCreate .* %{
+        powerline-theme solarized-light
+    }
+}
+
 set global tabstop 4
 
 set global grepcmd 'rg --column'
