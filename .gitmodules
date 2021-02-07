@@ -1,0 +1,3 @@
+[submodule ".config/kak/autoload/plugins/plug"]
+	path = .config/kak/autoload/plugins/plug
+	url = https://github.com/alexherbo2/plug.kak
