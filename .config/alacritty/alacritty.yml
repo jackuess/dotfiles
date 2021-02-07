@@ -56,10 +56,6 @@ colors:
     cyan:    '0x9aedfe'
     white:   '0xf1f1f0'
 
-visual_bell:
-  animation: EaseOutExpo
-  duration: 150
-
 # Key bindings
 #
 # Each binding is defined as an object with some properties. Most of the
