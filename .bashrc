@@ -48,4 +48,13 @@ precmd() {
 
 source /usr/share/doc/pkgfile/command-not-found.bash
 
+# Completion for GNU Global
+complete_global() {
+    local cur
+    cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=(`global -c $cur`)
+}
+complete -F complete_global global
+complete -F complete_global goto
+
 [[ -s "$HOME/.bashrc.local" ]] && source "$HOME/.bashrc.local"

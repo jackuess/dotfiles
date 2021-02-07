@@ -1,0 +1,41 @@
+#!/bin/sh
+
+set -euo pipefail
+
+kakoune() {
+    cmd='kak'
+    if command -v :edit > /dev/null; then
+        cmd=':edit'
+    fi
+    "$cmd" "$path" +"$line_nr"
+}
+
+pprint_selection() {
+    echo "Symbol: ${symbol}"
+    echo "Path: ${path}"
+    echo "Line number: ${line_nr}"
+    echo "Line: ${line}"
+}
+
+no_arguments() {
+    if ! command -v :send > /dev/null; then
+        echo "Usage: $(basename "$0") <GNU Global parameters>"
+        exit
+    fi
+    :send 'execute-keys <a-i>w'
+    exec "$0" "$(:get '%val{selections}')"
+}
+
+open=kakoune
+
+if [ $# -eq 0 ]; then
+    no_arguments
+fi
+
+selection=$(
+    global -x "$@" | \
+    fzf --preview='bat --color=always --highlight-line={2} {3}' \
+        --preview-window='+{2}-/2'
+) || exit
+read -r symbol line_nr path line <<< "$selection"
+"$open"
