@@ -29,7 +29,7 @@ plug-old powerline https://github.com/jdugan6240/powerline.kak %{
     powerline-start
 }
 
-set global tabstop 4
+set global tabstop 8
 
 set global grepcmd 'rg --column'
 
