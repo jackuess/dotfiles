@@ -1,11 +1,32 @@
-source "%val{config}/plugins/plug.kak/rc/plug.kak"
+require-module plug
 
-plug "andreyorst/plug.kak" noload config
-plug "alexherbo2/connect.kak"
-plug "andreyorst/powerline.kak" tag v1.0.0 %{
-    hook -once global WinCreate .* %{
+plug plug https://github.com/alexherbo2/plug.kak %{
+    # Upgrade plugins
+    # Install plugins and build them.
+    define-command plug-upgrade -docstring 'plug-upgrade' %{
+        plug-install
+        plug-execute connect make install
+        plug-execute lsp cargo build --release
+    }
+}
+
+plug prelude https://github.com/alexherbo2/prelude.kak
+
+plug connect https://github.com/alexherbo2/connect.kak %{
+    # Modules
+    require-module connect-fzf
+    require-module connect-broot
+
+    # Environment variables
+    set-option global connect_environment %{
+    }
+}
+
+plug-old powerline https://github.com/jdugan6240/powerline.kak %{
+    hook global ModuleLoaded powerline %{
         powerline-theme solarized-light
     }
+    powerline-start
 }
 
 set global tabstop 4
