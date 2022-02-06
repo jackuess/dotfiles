@@ -1,0 +1,8 @@
+set sort=threads
+set sort_aux=last-date-received
+
+set edit_headers=yes
+
+set pager_index_lines=15
+
+source gruvbox.muttrc
