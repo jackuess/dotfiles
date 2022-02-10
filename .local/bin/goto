@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -euo pipefail
 
@@ -32,8 +32,20 @@ if [ $# -eq 0 ]; then
     no_arguments
 fi
 
+global_opts=(-x)
+while [ $# -gt 0 ]; do
+    if [ "${1:0:1}" != '-' ]; then
+        break
+    fi
+    global_opts=(
+        "${global_opts[@]}"
+        "$1"
+    )
+    shift
+done
+
 selection=$(
-    global -x "$@" | \
+    global "${global_opts[@]}" "$@" | \
     fzf --preview='bat --color=always --highlight-line={2} {3}' \
         --preview-window='+{2}-/2'
 ) || exit
