@@ -16,7 +16,7 @@ set global grepcmd 'rg --column'
 # Highlighting
 add-highlighter global/ number-lines
 add-highlighter global/ show-matching
-add-highlighter global/ column '%opt{autowrap_column}' StatusLine
+add-highlighter global/ column '%opt{autowrap_column}' MenuBackground
 add-highlighter global/ regex \h+$ 0:Error  # Trailing whitespace
 
 ## Highlight search
