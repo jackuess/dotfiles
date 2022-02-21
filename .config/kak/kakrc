@@ -23,6 +23,10 @@ add-highlighter global/ regex \h+$ 0:Error  # Trailing whitespace
 set-face global search +bi
 add-highlighter global/search dynregex '%reg{/}' 0:search
 
+hook global WinSetOption 'filetype=(git-.*|mail)' %{
+  set-option buffer autowrap_column 75
+}
+
 # LSP
 evaluate-commands %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
