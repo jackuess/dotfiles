@@ -1,28 +1,8 @@
-require-module plug
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
-plug plug https://github.com/alexherbo2/plug.kak %{
-    # Upgrade plugins
-    # Install plugins and build them.
-    define-command plug-upgrade -docstring 'plug-upgrade' %{
-        plug-install
-        plug-execute connect make install
-        plug-execute lsp cargo build --release
-    }
-}
+plug https://github.com/robertmeta/plug.kak noload
 
-plug prelude https://github.com/alexherbo2/prelude.kak
-
-plug connect https://github.com/alexherbo2/connect.kak %{
-    # Modules
-    require-module connect-fzf
-    require-module connect-broot
-
-    # Environment variables
-    set-option global connect_environment %{
-    }
-}
-
-plug-old powerline https://github.com/jdugan6240/powerline.kak %{
+plug https://github.com/andreyorst/powerline.kak config %{
     hook global ModuleLoaded powerline %{
         powerline-theme solarized-light
     }
@@ -58,10 +38,6 @@ hook global InsertChar \t %{ try %{
   execute-keys -draft "h<a-h><a-k>\A\h+\z<ret><a-;>;%opt{indentwidth}@"
 }}
 map global insert <s-tab> '<a-;><lt>'
-
-# User mode key bindings
-map global user f :fzf-edit<ret> -docstring 'fzf-edit'
-map global user b :fzf-buffer<ret> -docstring 'fzf-buffer'
 
 colorscheme gruvbox-light
 # Hack to avoid using termcolors in the *grep* buffer:
