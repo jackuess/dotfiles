@@ -49,3 +49,20 @@ colorscheme gruvbox-light
 hook -group grep-highlight global WinSetOption filetype=grep %{
     add-highlighter window/grep/ regex "^((?:\w:)?[^:\n]+):(\d+):(\d+)?" 1:function 2:value 3:value
 }
+
+# goto.kak
+source %sh{ echo $(dirname "$kak_source")/plugins/goto.kak }
+map -docstring 'buffer'			global goto b '<esc>:<space>goto-buffer<ret>'
+map -docstring 'historic command'	global goto : '<esc>:<space>goto-history<ret>'
+
+hook global BufCreate .* %{
+    evaluate-commands %sh{
+        # Stop if no db available
+        global --print-dbpath > /dev/null 2>&1 || exit
+
+        printf "map -docstring 'gtag definition' global goto d \
+            '<esc>:<space>goto-gtag-under-cursor<ret>'\n"
+        printf "map -docstring 'gtag referece' global goto r \
+            '<esc>:<space>goto-gtag-under-cursor --reference<ret>'\n"
+    }
+}
