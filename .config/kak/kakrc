@@ -31,7 +31,7 @@ hook global WinSetOption 'filetype=(git-.*|mail)' %{
 # LSP
 evaluate-commands %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
-lsp-auto-hover-enable
+map global normal <c-l> ':lsp-hover<ret>'
 
 # Copy/Paste
 hook global NormalKey y|d|c %{ nop %sh{
