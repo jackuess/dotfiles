@@ -18,6 +18,7 @@ add-highlighter global/ number-lines
 add-highlighter global/ show-matching
 add-highlighter global/ column '%opt{autowrap_column}' MenuBackground
 add-highlighter global/ regex \h+$ 0:Error  # Trailing whitespace
+add-highlighter global/ show-whitespaces
 
 ## Highlight search
 set-face global search +bi
