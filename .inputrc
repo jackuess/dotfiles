@@ -2,6 +2,8 @@ set show-all-if-ambiguous on
 set colored-stats on
 set colored-completion-prefix on
 
+"\C-xP": print-last-kbd-macro
+
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 "\e[7~": beginning-of-line
