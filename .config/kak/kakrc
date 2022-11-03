@@ -58,7 +58,7 @@ map -docstring 'historic command'	global goto : '<esc>:<space>goto-history<ret>'
 hook global BufCreate .* %{
     evaluate-commands %sh{
         # Stop if no db available
-        global --print-dbpath > /dev/null 2>&1 || exit
+        global -C "$(dirname $kak_buffile)" --print-dbpath > /dev/null 2>&1 || exit
 
         printf "map -docstring 'gtag definition' global goto d \
             '<esc>:<space>goto-gtag-under-cursor<ret>'\n"

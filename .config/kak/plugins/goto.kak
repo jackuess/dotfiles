@@ -15,8 +15,8 @@ define-command -params 1.. \
                 }
                 cd "$1"; shift
                 tmp="$1"; shift
-                global -x "$@" | fzfcmd > "$tmp"' \
-                '' "$PWD" "$tmp" "$@"
+                global -ax "$@" | fzfcmd > "$tmp"' \
+                '' "$(dirname $kak_buffile)" "$tmp" "$@"
             symbol_info=$(cat $tmp)
             [ -z "$symbol_info" ] && exit
             read -r symbol line_nr path line <<< "$symbol_info"
