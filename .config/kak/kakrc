@@ -76,5 +76,21 @@ define-command gtags-funcinfo %{
     }
 }
 
+define-command gtags-update-tags -docstring 'Update tag files asynchronously' %{
+    echo -markup "{Information}launching gtag generation in the background"
+    nop %sh{ (
+        while ! mkdir .gtags.kaklock 2>/dev/null; do sleep 1; done
+        trap 'rmdir .gtags.kaklock' EXIT
+        if global -u -C "$(dirname "${kak_buffile}")"; then
+            mv .gtags.kaktmp tags
+            msg="gtags generation complete"
+        else
+            msg="gtags generation failed"
+        fi
+        printf %s\\n "evaluate-commands -client $kak_client echo -markup '{Information}${msg}'" | kak -p ${kak_session}
+    ) > /dev/null 2>&1 < /dev/null & }
+}
+
 # User mappings
 map -docstring 'Show current function'	global user f '<esc>:gtags-funcinfo<ret>'
+map -docstring 'Update (G)tags'		global user u '<esc>:gtags-update-tags<ret>'
