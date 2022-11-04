@@ -66,3 +66,15 @@ hook global BufCreate .* %{
             '<esc>:<space>goto-gtag-under-cursor --reference<ret>'\n"
     }
 }
+
+define-command gtags-funcinfo %{
+    info %sh{
+        global -C "$(dirname "$kak_buffile")" -f "$(basename "$kak_buffile")" | while read -r func line file sig; do
+            [ "$line" -gt "$kak_cursor_line" ] && break
+            printf '%s: %s\n' "$func" "$sig"
+        done | tail -n1
+    }
+}
+
+# User mappings
+map -docstring 'Show current function'	global user f '<esc>:gtags-funcinfo<ret>'
